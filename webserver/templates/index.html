@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NetWork</title>
+</head>
+<body>
+<h1 style="text-align: center">Lab Netwwork</h1>
+<hr>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Times</th>
+        <th>Server_name</th>
+        <th>IP_Addr</th>
+        <th>Status</th>
+        <th>Services</th>
+    </tr>
+{%for record in records%}
+    {%if ("Failed" in record.status) or ((record.services != "") and ("Failed" in record.services))%}
+    <tr style="background-color:red">
+        <td>{{record.id}}</td>
+        <td>{{record.times}}</td>
+        <td>{{record.server_name}}</td>
+        <td>{{record.ip_addr}}</td>
+        <td>{{record.status}}</td>
+        <td>{{record.services}}</td>
+    </tr>
+    {%else%}
+    <tr style="background-color:green">
+        <td>{{record.id}}</td>
+        <td>{{record.times}}</td>
+        <td>{{record.server_name}}</td>
+        <td>{{record.ip_addr}}</td>
+        <td>{{record.status}}</td>
+        <td>{{record.services}}</td>
+    </tr>
+    {%endif%}
+{%endfor%}
+</table>
+</body>
+</html>
